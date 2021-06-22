@@ -1,0 +1,30 @@
+.navbar-header {
+  position: fixed;
+  top: 0
+}
+
+.navbar-footer {
+  position: fixed;
+  bottom: 0
+}
+
+.nav-icon {
+  right: 0;
+  position: absolute;
+}
+
+.aside {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  width: 60px;
+  height: 100%;
+  border-right: 1px solid #e1e1e1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.aside-icon {
+  //display: block;
+}
