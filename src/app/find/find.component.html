@@ -1,8 +1,0 @@
-<form>
-  <mat-form-field class="example-full-width">
-    <mat-label>Search</mat-label>
-    <input matInput [(ngModel)]="findInput" name="input">
-  </mat-form-field>
-  <button (click)="find()" mat-flat-button>Find</button>
-</form>
-<app-image *ngFor="let photo of data.photo" [id]="photo.id"></app-image>

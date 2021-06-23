@@ -1,0 +1,17 @@
+:host {
+  width: 100%;
+}
+
+.form-find-input {
+  display: flex;
+  align-items: baseline;
+}
+
+.find-input {
+  flex: auto;
+}
+
+.button-submit {
+  height: 2rem;
+  margin: 0 15px;
+}

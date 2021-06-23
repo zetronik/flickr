@@ -1,18 +1,30 @@
-<mat-toolbar class="navbar-header">
-  <span>Image Finder</span>
-  <button mat-icon-button class="nav-icon">
-    <mat-icon>account_circle</mat-icon>
-  </button>
-</mat-toolbar>
-<aside class="aside">
-  <button mat-icon-button class="aside-icon">
-    <mat-icon>cloud</mat-icon>
-  </button>
-  <button mat-icon-button class="aside-icon">
-    <mat-icon>bookmarks</mat-icon>
-  </button>
-</aside>
+<header class="container__header">
+  <mat-toolbar>
+    <span>Image Finder</span>
+    <button mat-icon-button class="nav-icon">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+  </mat-toolbar>
+</header>
 
-<mat-toolbar class="navbar-footer">
-  <span>Copyrights</span>
-</mat-toolbar>
+<div class="container">
+
+  <aside class="container__sidebar">
+      <button mat-icon-button class="aside-icon">
+        <mat-icon>cloud</mat-icon>
+      </button>
+      <button mat-icon-button class="aside-icon">
+        <mat-icon>bookmarks</mat-icon>
+      </button>
+  </aside>
+
+
+  <app-main></app-main>
+
+</div>
+
+<footer class="container__footer">
+  <mat-toolbar>
+    <span>Copyrights</span>
+  </mat-toolbar>
+</footer>

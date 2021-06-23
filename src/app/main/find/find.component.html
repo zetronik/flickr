@@ -1,0 +1,7 @@
+<form (submit)="find()" class="form-find-input">
+  <mat-form-field class="find-input">
+    <mat-label>Find image</mat-label>
+    <input matInput [(ngModel)]="findInput" name="input">
+  </mat-form-field>
+  <button mat-flat-button color="accent" class="button-submit">Find</button>
+</form>
