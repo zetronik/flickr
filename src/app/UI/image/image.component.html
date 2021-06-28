@@ -1,0 +1,22 @@
+<img *ngIf="image.length" [src]="image[3].source" [alt]="title" class="card-image" (click)="imageModal = !imageModal">
+<mat-progress-spinner
+  *ngIf="!image.length"
+  class="example-margin"
+  color="red"
+  mode="indeterminate"
+></mat-progress-spinner>
+
+<div class="card-info">
+  <h4><strong>{{title}}</strong></h4>
+  <div *ngIf="tags.length" class="image-tags">
+    <strong>Tags:</strong>
+    <p>
+      <ng-container *ngFor="let tag of tags">{{tag.raw}} </ng-container>
+    </p>
+  </div>
+  <button mat-icon-button (click)="bookmarks()" [class.active]="this.storageService.get().includes(id)">
+    <mat-icon>star_purple500</mat-icon>
+  </button>
+</div>
+
+<app-image-modal *ngIf="imageModal" [images]="image" (close)="closeModal($event)"></app-image-modal>

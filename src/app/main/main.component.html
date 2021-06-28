@@ -1,2 +1,10 @@
 <app-find (input)="find($event)"></app-find>
-<app-image *ngFor="let photo of data.photo" [id]="photo.id"></app-image>
+<div class="pagination" *ngIf="data">
+  <button mat-raised-button color="primary" (click)="pagination('prev')">< Back</button>
+  <button mat-raised-button color="primary">Page {{this.page}} of {{data.pages}}</button>
+  <button mat-raised-button color="primary" (click)="pagination('next')">Forward ></button>
+</div>
+<ng-container *ngIf="data">
+  <app-image *ngFor="let photo of data.photo" [id]="photo.id" [title]="photo.title"></app-image>
+</ng-container>
+

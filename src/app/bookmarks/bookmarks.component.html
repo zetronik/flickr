@@ -1,0 +1,3 @@
+<ng-container *ngIf="storageService.get()">
+  <app-image *ngFor="let id of storageService.get()" [id]="id"></app-image>
+</ng-container>

@@ -1,0 +1,21 @@
+<div class="image-container">
+
+  <div class="image-header">
+    <button mat-icon-button color="accent" class="icon-close" (click)="close.emit(false)">
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </div>
+
+  <div class="image-size-button">
+    <button
+      mat-button
+      *ngFor="let image of images; index as i"
+      (click)="this.index = i"
+    > {{image.width}}x{{image.height}} </button>
+  </div>
+
+  <div class="image">
+    <img [src]="this.imageSize()" alt="">
+  </div>
+
+</div>

@@ -10,16 +10,27 @@
 <div class="container">
 
   <aside class="container__sidebar">
-      <button mat-icon-button class="aside-icon">
+      <button
+        mat-icon-button
+        class="aside-icon"
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact:true}"
+      >
         <mat-icon>cloud</mat-icon>
       </button>
-      <button mat-icon-button class="aside-icon">
+      <button
+        mat-icon-button
+        class="aside-icon"
+        routerLink="bookmarks"
+        routerLinkActive="active"
+      >
         <mat-icon>bookmarks</mat-icon>
       </button>
   </aside>
 
 
-  <app-main></app-main>
+  <router-outlet></router-outlet>
 
 </div>
 
@@ -28,3 +39,4 @@
     <span>Copyrights</span>
   </mat-toolbar>
 </footer>
+<app-save-mode *ngIf="active"></app-save-mode>
