@@ -23,15 +23,13 @@ export class MainComponent implements OnInit {
   }
 
   pagination(page: string) {
-    if (page === 'prev') {
+    if (page === 'prev' && this.inputSearch && this.page !== 1) {
       this.page === 1 ? this.page = 1 : this.page--
+      this.stateService.find(this.inputSearch, this.page).subscribe(data => this.data = data)
     }
 
-    if (page === 'next' && this.page < this.data.pages) {
+    if (page === 'next' && this.inputSearch && this.page < this.data.pages) {
       this.page++
-    }
-
-    if (this.inputSearch) {
       this.stateService.find(this.inputSearch, this.page).subscribe(data => this.data = data)
     }
   }

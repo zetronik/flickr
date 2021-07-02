@@ -18,7 +18,7 @@ export class StateService {
   constructor() {}
 
   find(text: string, page: number = 1): Observable<Photos> {
-    return ajax.getJSON(`${URL}method=flickr.photos.search&api_key=${KEY}&text=${text}&page=${page}&per_page=9&${FORMAT}`).pipe(
+    return ajax.getJSON(`${URL}method=flickr.photos.search&api_key=${KEY}&text=${text}&page=${page}&per_page=8&${FORMAT}`).pipe(
       map((res: any) => res.photos)
     )
   }
