@@ -1,8 +1,12 @@
 <app-find (input)="find($event)"></app-find>
 <div class="pagination" *ngIf="data">
-  <button mat-raised-button color="primary" (click)="pagination('prev')">< Back</button>
-  <button mat-raised-button color="primary">Page {{this.page}} of {{data.pages}}</button>
-  <button mat-raised-button color="primary" (click)="pagination('next')">Forward ></button>
+  <button mat-raised-button color="primary" (click)="pagination('prev')">
+    <mat-icon>arrow_back_ios</mat-icon>
+  </button>
+  <button mat-raised-button color="primary">{{this.page}} of {{data.pages}}</button>
+  <button mat-raised-button color="primary" (click)="pagination('next')">
+    <mat-icon>arrow_forward_ios</mat-icon>
+  </button>
 </div>
 <ng-container *ngIf="data">
   <app-image
