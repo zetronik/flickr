@@ -21,6 +21,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { BookmarksComponent } from './bookmarks/bookmarks.component';
 import { ImageModalComponent } from './UI/image-modal/image-modal.component'
 import {AuthService} from './auth.service'
+import {MatCardModule} from '@angular/material/card'
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import {AuthService} from './auth.service'
     ImageModalComponent
   ],
 	imports: [
-    AngularFireModule.initializeApp(environment.firebase),
+		AngularFireModule.initializeApp(environment.firebase),
 		BrowserModule,
 		AppRoutingModule,
 		BrowserAnimationsModule,
@@ -42,7 +43,8 @@ import {AuthService} from './auth.service'
 		MatProgressSpinnerModule,
 		MatToolbarModule,
 		MatIconModule,
-		MatGridListModule
+		MatGridListModule,
+		MatCardModule
 	],
   providers: [
     StateService,

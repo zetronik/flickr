@@ -42,7 +42,7 @@ export class AppComponent {
         this.logout()
         localStorage.active = JSON.stringify(true)
         clearTimeout(this.int)
-      }, 1000*60*1)
+      }, 1000*60*10)
     }
   }
 

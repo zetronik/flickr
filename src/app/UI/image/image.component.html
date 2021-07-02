@@ -1,26 +1,15 @@
-<img *ngIf="image.length" [src]="image[3].source" [alt]="title" class="card-image" (click)="imageModal = !imageModal">
-<mat-progress-spinner
-  *ngIf="!image.length"
-  class="example-margin"
-  color="red"
-  mode="indeterminate"
-></mat-progress-spinner>
-
-<div class="card-info">
-  <h4><strong>{{title}}</strong></h4>
-  <div *ngIf="tags.length" class="image-tags">
+<mat-card class="image-card">
+  <img mat-card-image *ngIf="image.length" [src]="image[3].source" [alt]="title">
+  <mat-card-content>
     <strong>Tags:</strong>
     <p>
       <ng-container *ngFor="let tag of tags">{{tag.raw}} </ng-container>
     </p>
-  </div>
-  <button
-    mat-flat-button
-    color="primary"
-    (click)="actionCard()"
-  >
-    Bookmarks
-  </button>
-</div>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-button (click)="actionCard()">BOOKMARKS</button>
+    <button mat-button (click)="imageModal = !imageModal">OPEN</button>
+  </mat-card-actions>
+</mat-card>
 
 <app-image-modal *ngIf="imageModal" [images]="image" (close)="closeModal($event)"></app-image-modal>
