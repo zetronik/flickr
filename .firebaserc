@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "flickr-find-image": {
+      "hosting": {
+        "flickr": [
+          "flickr-find-image"
+        ]
+      }
+    }
+  }
+}

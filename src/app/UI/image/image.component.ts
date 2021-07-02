@@ -1,8 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core'
 import {StateService} from '../../state.service'
 import {ImageSize} from '../../interface/images'
 import {Info} from '../../interface/info'
-import {StorageService} from '../../storage.service'
+import {AuthService} from '../../auth.service'
 
 @Component({
   selector: 'app-image',
@@ -11,18 +11,26 @@ import {StorageService} from '../../storage.service'
 })
 export class ImageComponent implements OnInit {
   @Input() id!: string;
-  @Input() title!: string;
+  @Input() key!: string;
+  @Input() title?: string;
+
+  @Output() action: EventEmitter<string> = new EventEmitter<string>()
+
   public image: ImageSize[] = []
   public tags: Info[] = []
   public imageModal: boolean = false
 
   constructor(
     private stateService: StateService,
-    public storageService: StorageService
+    public authService: AuthService
   ) {}
 
-  bookmarks() {
-    this.storageService.set(this.id)
+  actionCard() {
+    if (this.key) {
+      this.action.emit(this.key)
+    } else {
+      this.action.emit(this.id)
+    }
   }
 
   closeModal(event: boolean) {
