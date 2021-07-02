@@ -1,3 +1,6 @@
-<ng-container *ngIf="storageService.get()">
-  <app-image *ngFor="let id of storageService.get()" [id]="id"></app-image>
-</ng-container>
+<app-image
+  *ngFor="let data of items | async"
+  (action)="remove($event)"
+  [id]="data.id"
+  [key]="data.key"
+></app-image>

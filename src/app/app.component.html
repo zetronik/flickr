@@ -1,8 +1,11 @@
 <header class="container__header">
   <mat-toolbar>
     <span>Image Finder</span>
-    <button mat-icon-button class="nav-icon">
+    <button mat-icon-button *ngIf="!authService.getAuth()" class="nav-icon" (click)="authService.login()">
       <mat-icon>account_circle</mat-icon>
+    </button>
+    <button mat-icon-button *ngIf="authService.getAuth()" class="nav-icon" (click)="logout()">
+      <mat-icon>logout</mat-icon>
     </button>
   </mat-toolbar>
 </header>
@@ -29,7 +32,6 @@
       </button>
   </aside>
 
-
   <router-outlet></router-outlet>
 
 </div>
@@ -39,4 +41,3 @@
     <span>Copyrights</span>
   </mat-toolbar>
 </footer>
-<app-save-mode *ngIf="active"></app-save-mode>

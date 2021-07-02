@@ -5,6 +5,11 @@
   <button mat-raised-button color="primary" (click)="pagination('next')">Forward ></button>
 </div>
 <ng-container *ngIf="data">
-  <app-image *ngFor="let photo of data.photo" [id]="photo.id" [title]="photo.title"></app-image>
+  <app-image
+    *ngFor="let photo of data.photo"
+    [id]="photo.id"
+    [title]="photo.title"
+    (action)="push($event)"
+  ></app-image>
 </ng-container>
 

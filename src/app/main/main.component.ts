@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AngularFireDatabase} from '@angular/fire/database'
 import {StateService} from '../state.service'
 import {Photos} from '../interface/photos'
 
@@ -13,7 +14,13 @@ export class MainComponent implements OnInit {
   public data: Photos | undefined;
   public page: number = 1
 
-  constructor(private stateService: StateService) { }
+  constructor(private stateService: StateService, private db: AngularFireDatabase) { }
+
+  push($event: any) {
+    if (!!localStorage.uid) {
+      this.db.list(localStorage.uid).push($event)
+    }
+  }
 
   pagination(page: string) {
     if (page === 'prev') {
@@ -33,7 +40,6 @@ export class MainComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }
