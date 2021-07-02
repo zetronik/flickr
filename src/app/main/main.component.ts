@@ -10,7 +10,7 @@ import {Photos} from '../interface/photos'
 export class MainComponent implements OnInit {
 
   public inputSearch: string = ''
-  public data: Photos | undefined;
+  public data!: Photos;
   public page: number = 1
 
   constructor(private stateService: StateService) { }
@@ -18,9 +18,12 @@ export class MainComponent implements OnInit {
   pagination(page: string) {
     if (page === 'prev') {
       this.page === 1 ? this.page = 1 : this.page--
-    } else if (page === 'next') {
+    }
+
+    if (page === 'next' && this.page < this.data.pages) {
       this.page++
     }
+
     if (this.inputSearch) {
       this.stateService.find(this.inputSearch, this.page).subscribe(data => this.data = data)
     }
@@ -30,6 +33,7 @@ export class MainComponent implements OnInit {
     if (text.length >= 3) {
       this.inputSearch = text
       this.stateService.find(text).subscribe(data => this.data = data)
+      this.page = 1
     }
   }
 
