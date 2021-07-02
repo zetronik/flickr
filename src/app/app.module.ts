@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { SETTINGS as AUTH_SETTINGS } from '@angular/fire/auth'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,8 +19,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { MainComponent } from './main/main.component'
 import {MatGridListModule} from '@angular/material/grid-list';
 import { BookmarksComponent } from './bookmarks/bookmarks.component';
-import { SaveModeComponent } from './UI/save-mode/save-mode.component';
 import { ImageModalComponent } from './UI/image-modal/image-modal.component'
+import {AuthService} from './auth.service'
 
 @NgModule({
   declarations: [
@@ -26,10 +29,10 @@ import { ImageModalComponent } from './UI/image-modal/image-modal.component'
     ImageComponent,
     MainComponent,
     BookmarksComponent,
-    SaveModeComponent,
     ImageModalComponent
   ],
 	imports: [
+    AngularFireModule.initializeApp(environment.firebase),
 		BrowserModule,
 		AppRoutingModule,
 		BrowserAnimationsModule,
@@ -41,7 +44,11 @@ import { ImageModalComponent } from './UI/image-modal/image-modal.component'
 		MatIconModule,
 		MatGridListModule
 	],
-  providers: [StateService],
+  providers: [
+    StateService,
+    AuthService,
+    {provide: AUTH_SETTINGS, useValue: {appVerificationDisabledForTesting: true}}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

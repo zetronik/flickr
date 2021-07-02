@@ -14,8 +14,12 @@
       <ng-container *ngFor="let tag of tags">{{tag.raw}} </ng-container>
     </p>
   </div>
-  <button mat-icon-button (click)="bookmarks()" [class.active]="this.storageService.get().includes(id)">
-    <mat-icon>star_purple500</mat-icon>
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="actionCard()"
+  >
+    Bookmarks
   </button>
 </div>
 
